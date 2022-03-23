@@ -27,6 +27,6 @@ typedef struct dante {
 }dante_t;
 
 char *my_itoa(int num);
-void recursive_division(dante_t *dante, int x, int y, int width, int height, int orientation);
+void recursive_division(dante_t *dante, int x, int y, int wi, int he, int ori);
 int choose_orientation(int width, int height);
 void make_maze(dante_t *dante);
