@@ -20,7 +20,8 @@ void make_maze(dante_t *dante)
             south = ((dante->grid[y][x] & 1) != 0 || bottom) ? 1 : 0;
             south2 = ((x + 1 < dante->baseheight &&
             (dante->grid[y][x + 1] & 1)) != 0 || bottom);
-            east = ((dante->grid[y][x] & 2) != 0 || x + 1 >= dante->baseheight);
+            east = ((dante->grid[y][x] & 2) != 0 || x + 1 >=
+            dante->baseheight);
             dante->labyrinthe[y][x] = (south ? 'X' : '*');
             dante->labyrinthe[y][x] = east ? 'X' :
             ((south && south2) ? 'X' : '*');
