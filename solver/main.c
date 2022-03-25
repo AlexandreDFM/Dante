@@ -10,7 +10,7 @@
 int alg_solver(solver_t *s, int pos_x, int pos_y)
 {
     if (pos_x <= -1 || pos_y <= -1) return 0;
-    if (pos_x >= s->width || pos_y >= s->height + 1) return 0;
+    if (pos_x >= s->width + 1 || pos_y >= s->height + 1) return 0;
     if (s->maze[pos_x][pos_y] == 'X' ||
     s->maze[pos_x][pos_y] == 'o') return 0;
     else if (s->maze[pos_x][pos_y] == 'E') return 1;
@@ -31,10 +31,10 @@ int alg_solver(solver_t *s, int pos_x, int pos_y)
 
 void my_print_map(solver_t *solver, char **map)
 {
-    for (int y = 0; y < solver->height; y++) {
+    for (int y = 0; y <= solver->height; y++) {
         for (int x = 0; x <= solver->width; x++)
             printf("%c", map[y][x]);
-        if (y < solver->height - 1) printf("\n");
+        if (y < solver->height) printf("\n");
     }
 }
 
@@ -58,10 +58,10 @@ int solver(char *filepath)
     if (check_map(map) == 84) return 84;
     solver.maze = str_to_tok(map, "\n");
     free(map);
-    for (solver.height = 0; solver.maze[solver.height];solver.height++);
+    for (solver.height = 0; solver.maze[solver.height]; solver.height++);
     solver.width = strlen(solver.maze[0]);
     solver.height -= 1, solver.width -= 1;
-    solver.maze[solver.height - 1][solver.width] = 'E';
+    solver.maze[solver.height][solver.width] = 'E';
     if (!alg_solver(&solver, 0, 0)) {
         printf("no solution found");
         return 0;
