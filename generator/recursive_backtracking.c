@@ -39,7 +39,7 @@ int **al_recusive_backtracking(dante_t *dante, int cx, int cy, int **grid)
 {
     grid[cy][cx] = 0;
     int nx = 0, ny = 0, ly = 0, lx = 0, direction = 0;
-    int directions[4] = {1, 2, 4, 8}, save_dir[4] = {1, 2, 4 , 8};
+    int directions[4] = {1, 2, 4, 8}, save_dir[4] = {1, 2, 4, 8};
     int dx[4] = {0, 0, 1, -1};
     int dy[4] = {-1, 1, 0, 0};
     shuffle(directions, 4);

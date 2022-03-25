@@ -7,17 +7,6 @@
 
 #include "generator.h"
 
-int is_finished_2(int **grid, int width, int height)
-{
-    for (int y = 0; y < height; y++) {
-        for (int x = 0; x < width; x++) {
-            if (grid[y][x] == 1 || grid[y][x] == 2) continue;
-            else return 1;
-        }
-    }
-    return 0;
-}
-
 int count_x(int **grid, int x, int y)
 {
     int counter1 = 0;
