@@ -50,11 +50,9 @@ void create_recusive_backtracking(int x, int y)
     dante.stackx = 0;
     dante.stacky = 0;
     dante.stackmax = 0;
-    while (!(count_x(dante.grid, x, y) - 2 == count_s(dante.grid, x, y))) {
-        dante.grid = al_recusive_backtracking(&dante,
-        dante.stackx, dante.stacky, dante.grid);
-        dante.stackmax = 0;
-    }
+    dante.grid = al_recusive_backtracking(&dante,
+    dante.stackx, dante.stacky, dante.grid);
+    dante.stackmax = 0;
     dante.grid = exit_check(dante.grid, x, y);
     for (int i = 0; i < y; i++) {
         for (int j = 0; j < x; j++) {
