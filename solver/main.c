@@ -66,7 +66,7 @@ int solver(char *filepath)
         printf("no solution found");
         return 0;
     }
-    solver.maze[solver.height - 1][solver.width] = 'o';
+    solver.maze[solver.height][solver.width] = 'o';
     my_print_map(&solver, solver.maze);
     my_free_array(solver.maze);
     return 0;
