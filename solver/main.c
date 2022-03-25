@@ -38,14 +38,12 @@ int solver(char *filepath)
     solver.height = 0, solver.width = 0;
     for (int y = 0; solver.labyrinthe[y + 1] != NULL; y++, solver.height++) {
         solver.width = 0;
-        for (int x = 0; solver.labyrinthe[y][x] != '\0' && solver.labyrinthe[y][x] != '\n'; x++, solver.width++) {
-            printf("%c", solver.labyrinthe[y][x]);
-        }
+        for (int x = 0; solver.labyrinthe[y][x] != '\0'
+        && solver.labyrinthe[y][x] != '\n'; x++, solver.width++);
     }
-    printf("%d %d", solver.height, solver.width);
-    solver.labyrinthe[solver.height - 2][solver.width - 1] = 'E';
+    solver.labyrinthe[solver.height - 1][solver.width - 1] = 'E';
     if (!alg_solver(&solver, 0, 0)) return 0;
-    solver.labyrinthe[solver.height - 2][solver.width - 1] = 'o';
+    solver.labyrinthe[solver.height - 1][solver.width - 1] = 'o';
     for (int y = 0; solver.labyrinthe[y] != NULL; y++) {
         printf(solver.labyrinthe[y]);
         if (y < solver.height - 1) printf("\n");
