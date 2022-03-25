@@ -32,7 +32,8 @@ int alg_solver(solver_t *s, int pos_x, int pos_y)
 int solver(char *filepath)
 {
     solver_t solver;
-    solver.labyrinthe = my_strtwa(open_file(filepath, count_int_read(filepath)), "\n");
+    solver.labyrinthe = my_strtwa(open_file(filepath,
+    count_int_read(filepath)), "\n");
     int y = 0, x = 0;
     for (y = 0; solver.labyrinthe[y] != NULL; y++)
         for(; solver.labyrinthe[y][x] != '\0'; x++);
