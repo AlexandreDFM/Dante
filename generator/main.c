@@ -7,29 +7,6 @@
 
 #include "generator.h"
 #include "time.h"
-#include "sys/resource.h"
-
-int count_x(int **grid, int x, int y)
-{
-    int counter1 = 0;
-    for (int i = 0; i < y; i++) {
-        for (int j = 0; j < x; j++) {
-            counter1 += (grid[i][j]) ? 1 : 0;
-        }
-    }
-    return counter1;
-}
-
-int count_s(int **grid, int x, int y)
-{
-    int counter2 = 0;
-    for (int i = 0; i < y; i++) {
-        for (int j = 0; j < x; j++) {
-            counter2 += (!grid[i][j]) ? 1 : 0;
-        }
-    }
-    return counter2;
-}
 
 void carve_imperfect(dante_t *dante)
 {

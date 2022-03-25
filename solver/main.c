@@ -33,22 +33,33 @@ void my_print_map(solver_t *solver, char **map)
 {
     for (int y = 0; y < solver->height; y++) {
         for (int x = 0; x <= solver->width; x++)
-           printf("%c", map[y][x]);
+            printf("%c", map[y][x]);
         if (y < solver->height - 1) printf("\n");
     }
+}
+
+int check_map(char *map)
+{
+    for (int i = 0; map[i] != '\0'; i++) {
+        if (map[i] == '*' || map[i] == 'X' || map[i] == '\n') {
+            continue;
+        } else {
+            return 84;
+        }
+    }
+    return 0;
 }
 
 int solver(char *filepath)
 {
     solver_t solver;
     char *map = open_file(filepath, count_int_read(filepath));
-    solver.maze = my_strtwa(map, "\n\0");
+    if (count_int_read(filepath) <= 1) return 84;
+    if (check_map(map) == 84) return 84;
+    solver.maze = str_to_tok(map, "\n");
     free(map);
-    solver.height = 1, solver.width = 0;
-    for (int y = 0; solver.maze[y + 1] != NULL; y++, solver.height++) {
-        solver.width = 0;
-        for (int x = 0; solver.maze[y][x] != '\0'; x++, solver.width++);
-    }
+    for (solver.height = 0; solver.maze[solver.height];solver.height++);
+    solver.width = strlen(solver.maze[0]);
     solver.height -= 1, solver.width -= 1;
     solver.maze[solver.height - 1][solver.width] = 'E';
     if (!alg_solver(&solver, 0, 0)) {
@@ -58,14 +69,14 @@ int solver(char *filepath)
     solver.maze[solver.height - 1][solver.width] = 'o';
     my_print_map(&solver, solver.maze);
     my_free_array(solver.maze);
-    return 1;
+    return 0;
 }
 
 int main(int argc, char **argv)
 {
     if (argc == 2) {
-        solver(argv[1]);
-        return 1;
+        if (solver(argv[1]) == 84) return 84;
+        else return 0;
     }
     return 84;
 }

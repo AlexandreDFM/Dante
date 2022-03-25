@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.c": "c",
+        "t3.C": "cpp",
+        "solver.h": "c"
+    }
+}

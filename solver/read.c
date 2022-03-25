@@ -11,6 +11,7 @@ char *open_file(char *mappath, int size_of_read)
 {
     char *buffer = malloc(sizeof(char) * (size_of_read + 1));
     int fd = open(mappath, O_RDONLY);
+    if (fd < 0) return NULL;
     int total_read = 0, n_read = 0;
     while ((n_read = read(fd, buffer + total_read,
     (size_of_read + 1) - total_read)) > 0) {
