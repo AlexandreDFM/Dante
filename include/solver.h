@@ -19,7 +19,7 @@
 typedef struct solver {
     int width;
     int height;
-    char **labyrinthe;
+    char **maze;
 }solver_t;
 
 int count_int_read(char *mappath);

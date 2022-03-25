@@ -10,11 +10,11 @@
 void make_maze(dante_t *dante)
 {
     int bottom = 0, south = 0, south2 = 0, east = 0;
-    dante->labyrinthe[0][0] = '*';
+    dante->maze[0][0] = '*';
     for (int x = 0; x < dante->basewidth; x++)
-        dante->labyrinthe[0][x] = 'X';
+        dante->maze[0][x] = 'X';
     for (int y = 1; y < dante->baseheight; y++) {
-        dante->labyrinthe[y][0] = 'X';
+        dante->maze[y][0] = 'X';
         for (int x = 1; x < dante->width; x++) {
             bottom = (y + 1) >= dante->baseheight ? 1 : 0;
             south = ((dante->grid[y][x] & 1) != 0 || bottom) ? 1 : 0;
@@ -22,8 +22,8 @@ void make_maze(dante_t *dante)
             (dante->grid[y][x + 1] & 1)) != 0 || bottom);
             east = ((dante->grid[y][x] & 2) != 0 || x + 1 >=
             dante->baseheight);
-            dante->labyrinthe[y][x] = (south ? 'X' : '*');
-            dante->labyrinthe[y][x] = east ? 'X' :
+            dante->maze[y][x] = (south ? 'X' : '*');
+            dante->maze[y][x] = east ? 'X' :
             ((south && south2) ? 'X' : '*');
         }
     }

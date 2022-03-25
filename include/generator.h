@@ -33,7 +33,7 @@ typedef struct dante {
     vector_2i_t size;
     int **grid;
     int *pile;
-    char **labyrinthe;
+    char **maze;
 }dante_t;
 
 char *my_itoa(int num);
