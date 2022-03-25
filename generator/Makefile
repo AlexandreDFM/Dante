@@ -12,8 +12,9 @@ CC    = gcc
 RM    = rm -f
 
 SRC    = main.c								\
-		recursive_division.c				\
+		recursive_backtracking.c			\
 		my_itoa.c							\
+		create_tab.c						\
 
 OBJ    = $(SRC:.c=.o)
 
