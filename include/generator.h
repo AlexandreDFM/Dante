@@ -37,6 +37,7 @@ typedef struct dante {
 }dante_t;
 
 char *my_itoa(int num);
+void my_free_array(char **array);
 char **create_char_tab(int x, int y);
 int **create_int_tab(int x, int y, int nb);
 int *create_int_array(int size, int nb);

@@ -16,6 +16,7 @@ char *open_file(char *mappath, int size_of_read)
     (size_of_read + 1) - total_read)) > 0) {
         total_read += n_read;
     }
+    close(fd);
     buffer[size_of_read] = '\0';
     return (buffer);
 }

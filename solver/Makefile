@@ -12,8 +12,9 @@ CC    = gcc
 RM    = rm -f
 
 SRC    = main.c								\
-		 my_strtwa.c						\
-		 read.c								\
+		my_strtwa.c							\
+		read.c								\
+		my_free_array.c						\
 
 OBJ    = $(SRC:.c=.o)
 

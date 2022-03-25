@@ -15,6 +15,7 @@ SRC    = main.c								\
 		recursive_backtracking.c			\
 		my_itoa.c							\
 		create_tab.c						\
+		my_free_array.c						\
 
 OBJ    = $(SRC:.c=.o)
 

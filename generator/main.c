@@ -55,19 +55,31 @@ void create_recusive_backtracking(int x, int y)
     dante.stackmax = 0;
     dante.grid = exit_check(dante.grid, x, y);
     for (int i = 0; i < y; i++) {
-        for (int j = 0; j < x; j++) {
+        for (int j = 0; j < x; j++)
             printf("%c", (dante.grid[i][j]) ? 'X' : '*');
-        }
         if (i < y - 1) printf("\n");
     }
+    for (int i = 0; i < y; i++)
+        free(dante.grid[i]);
+    free(dante.grid);
 }
 
 int main(int argc, char **argv)
 {
     if (argc == 3) {
         srand(time(0));
-        if (strlen(argv[1]) != strlen(my_itoa(atoi(argv[1])))) return 84;
-        if (strlen(argv[2]) != strlen(my_itoa(atoi(argv[2])))) return 84;
+        char *number1 = my_itoa(atoi(argv[1]));
+        char *number2 = my_itoa(atoi(argv[2]));
+        if (strlen(argv[1]) != strlen(number1)) {
+            free(number1);
+            return 84;
+        }
+        if (strlen(argv[2]) != strlen(number2)) {
+            free(number2);
+            return 84;
+        }
+        free(number1);
+        free(number2);
         create_recusive_backtracking(atoi(argv[1]), atoi(argv[2]));
         return 1;
     } else if (argc == 4) {

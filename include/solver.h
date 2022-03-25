@@ -25,3 +25,4 @@ typedef struct solver {
 int count_int_read(char *mappath);
 char *open_file(char *mappath, int size_of_read);
 char **my_strtwa(char const *str, char *limit);
+void my_free_array(char **array);
