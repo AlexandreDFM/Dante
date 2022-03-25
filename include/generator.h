@@ -1,6 +1,6 @@
 /*
 ** EPITECH PROJECT, 2021
-** dante.h
+** generator.h
 ** File description:
 ** Header of Dante
 */
@@ -9,13 +9,11 @@
 
 #include "my.h"
 #include "printf.h"
-#include "unistd.h"
-#include "math.h"
+#include <unistd.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <time.h>
-#include <pthread.h>
 
 typedef struct vector_2i {
     int x;
@@ -44,3 +42,4 @@ int **create_int_tab(int x, int y, int nb);
 int *create_int_array(int size, int nb);
 int **exit_check(int **grid, int x, int y);
 int **al_recusive_backtracking(dante_t *dante, int cx, int cy, int **grid);
+

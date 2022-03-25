@@ -5,7 +5,7 @@
 ** recursive_backtracking
 */
 
-#include "dante.h"
+#include "generator.h"
 
 void shuffle(int *arr, int size) {
     for (int i = 0; i < size; i++) {

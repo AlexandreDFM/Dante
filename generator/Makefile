@@ -18,9 +18,9 @@ SRC    = main.c								\
 
 OBJ    = $(SRC:.c=.o)
 
-CFLAGS += -Wall -Wextra -pedantic -I../include -g3 -lm
+CFLAGS += -Wall -Wextra -pedantic -I../include -g3
 
-LIBFLAG    = -L ../lib/my/ -lmy -I ../include -g3 -lm
+LIBFLAG    = -L ../lib/my/ -lmy -I ../include -g3
 
 all: $(NAME)
 

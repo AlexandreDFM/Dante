@@ -5,7 +5,7 @@
 ** create_tab
 */
 
-#include "dante.h"
+#include "generator.h"
 
 char **create_char_tab(int x, int y)
 {

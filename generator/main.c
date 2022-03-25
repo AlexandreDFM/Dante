@@ -5,11 +5,10 @@
 ** Main of generator of Dante
 */
 
-#include "dante.h"
+#include "generator.h"
 
 int is_finished_2(int **grid, int width, int height)
 {
-    int nb = grid[1][1];
     for (int y = 0; y < height; y++) {
         for (int x = 0; x < width; x++) {
             if (grid[y][x] == 1 || grid[y][x] == 2) continue;
