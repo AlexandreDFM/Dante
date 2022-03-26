@@ -61,6 +61,7 @@ int solver(char *filepath)
     for (solver.height = 0; solver.maze[solver.height]; solver.height++);
     solver.width = strlen(solver.maze[0]);
     solver.height -= 1, solver.width -= 1;
+    if (empty(&solver, solver.height, solver.width)) return 1;
     solver.maze[solver.height][solver.width] = 'E';
     if (!alg_solver(&solver, 0, 0)) {
         printf("no solution found");

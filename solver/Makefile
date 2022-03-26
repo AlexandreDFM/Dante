@@ -14,6 +14,7 @@ RM    = rm -f
 SRC    = main.c								\
 		my_strtwa.c							\
 		read.c								\
+		empty.c								\
 		my_free_array.c						\
 		my_str_to_word_array.c				\
 
