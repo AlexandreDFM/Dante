@@ -27,3 +27,5 @@ char *open_file(char *mappath, int size_of_read);
 char **my_strtwa(char const *str, char *limit);
 void my_free_array(char **array);
 char **str_to_tok(char *str, const char *delim);
+int empty(solver_t *solver, int width, int height);
+void my_print_map(solver_t *solver, char **map);
