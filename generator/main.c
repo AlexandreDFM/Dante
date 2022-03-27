@@ -8,19 +8,13 @@
 #include "generator.h"
 #include "time.h"
 
-void split_maze(dante_t *dante)
-{
-    for (int i = dante->height / 2; i < dante->height; i++) {
-        dante->grid[i][dante->width / 2] = 1;
-    }
-}
-
 void carve_imperfect(dante_t *dante)
 {
     int random = rand() % 2;
     for (int i = 0; i < dante->height; i++) {
         for (int j = 0; j < dante->width; j++) {
-            dante->grid[i][j] = (dante->grid[i][j] == 1 && random == 0) ? 1 : 0;
+            dante->grid[i][j] = (dante->grid[i][j] == 1 && random == 0)
+            ? 1 : 0;
             random = rand() % 2;
         }
     }

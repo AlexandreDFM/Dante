@@ -16,6 +16,7 @@ SRC    = main.c								\
 		my_itoa.c							\
 		create_tab.c						\
 		my_free_array.c						\
+		split.c								\
 
 OBJ    = $(SRC:.c=.o)
 
