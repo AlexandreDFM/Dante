@@ -14,19 +14,13 @@ int alg_solver(solver_t *s, int pos_x, int pos_y)
     if (s->maze[pos_x][pos_y] == 'X' ||
     s->maze[pos_x][pos_y] == 'o') return 0;
     else if (s->maze[pos_x][pos_y] == 'E') return 1;
-    else {
-        s->maze[pos_x][pos_y] = 'o';
-        if (alg_solver(s, pos_x + 1, pos_y) == 1)
-            return 1;
-        if (alg_solver(s, pos_x - 1, pos_y) == 1)
-            return 1;
-        if (alg_solver(s, pos_x, pos_y + 1) == 1)
-            return 1;
-        if (alg_solver(s, pos_x, pos_y - 1) == 1)
-            return 1;
-        s->maze[pos_x][pos_y] = '*';
-        return 0;
-    }
+    s->maze[pos_x][pos_y] = 'o';
+    if (alg_solver(s, pos_x + 1, pos_y) == 1) return 1;
+    if (alg_solver(s, pos_x - 1, pos_y) == 1) return 1;
+    if (alg_solver(s, pos_x, pos_y + 1) == 1) return 1;
+    if (alg_solver(s, pos_x, pos_y - 1) == 1) return 1;
+    s->maze[pos_x][pos_y] = '*';
+    return 0;
 }
 
 void my_print_map(solver_t *solver, char **map)
@@ -76,8 +70,11 @@ int solver(char *filepath)
 int main(int argc, char **argv)
 {
     if (argc == 2) {
-        if (solver(argv[1]) == 84) return 84;
-        else return 0;
+        if (solver(argv[1]) == 84) {
+            return 84;
+        } else {
+            return 0;
+        }
     }
     return 84;
 }

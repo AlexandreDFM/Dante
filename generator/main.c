@@ -95,20 +95,16 @@ int main(int argc, char **argv)
         char *number1 = my_itoa(atoi(argv[1]));
         char *number2 = my_itoa(atoi(argv[2]));
         if (strlen(argv[1]) != strlen(number1)) {
-            free(number1);
-            return 84;
+            free(number1); return 84;
         }
         if (strlen(argv[2]) != strlen(number2)) {
-            free(number2);
-            return 84;
+            free(number2); return 84;
         }
-        free(number1);
-        free(number2);
+        free(number1); free(number2);
         make_imperfect(atoi(argv[1]), atoi(argv[2]));
         return 0;
-    } else if (argc == 4) {
-        if (choose_maze_format(argv[1], argv[2], argv[3]) == 84) return 84;
-        return 0;
     }
+    if (argc == 4 && choose_maze_format(argv[1], argv[2], argv[3]) == 84)
+        return 84;
     return 0;
 }

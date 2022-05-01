@@ -7,7 +7,8 @@
 
 #include "generator.h"
 
-void shuffle(int *arr, int size) {
+void shuffle(int *arr, int size)
+{
     for (int i = 0; i < size; i++) {
         int j = rand() % size;
         int t = arr[i];
